@@ -12,15 +12,15 @@ config :show_n_tell,
 # Configures the endpoint
 config :show_n_tell, ShowNTellWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "P71dpWbYyUl9D7MJOnuaE0YH0KGJqVxccsLh4Pwou1GgMwFLvv1r0iJsZ766sgq4",
-  render_errors: [view: ShowNTellWeb.ErrorView, accepts: ~w(html json)],
+  secret_key_base: "eJpQBDM49IF7QNvuz4EA2xTBWgLkJrB72gLoTE/tDo4QPbcJoWSU2qVe3E0PwX63",
+  render_errors: [view: ShowNTellWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: ShowNTell.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+  metadata: [:user_id]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

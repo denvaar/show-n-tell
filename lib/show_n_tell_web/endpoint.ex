@@ -14,12 +14,9 @@ defmodule ShowNTellWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
-    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
-    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
   end
 
-  plug Plug.RequestId
   plug Plug.Logger
 
   plug Plug.Parsers,
@@ -36,7 +33,7 @@ defmodule ShowNTellWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_show_n_tell_key",
-    signing_salt: "my9L0g0W"
+    signing_salt: "0KzqY3od"
 
   plug ShowNTellWeb.Router
 
