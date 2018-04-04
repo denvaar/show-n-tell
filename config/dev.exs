@@ -11,8 +11,7 @@ config :show_n_tell, ShowNTellWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: []
 
 # ## SSL Support
 #
@@ -30,17 +29,6 @@ config :show_n_tell, ShowNTellWeb.Endpoint,
 # configured to run both http and https servers on
 # different ports.
 
-# Watch static and templates for browser reloading.
-config :show_n_tell, ShowNTellWeb.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/show_n_tell_web/views/.*(ex)$},
-      ~r{lib/show_n_tell_web/templates/.*(eex)$}
-    ]
-  ]
-
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
@@ -52,7 +40,7 @@ config :phoenix, :stacktrace_depth, 20
 config :show_n_tell, ShowNTell.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "",
+  password: "postgres",
   database: "show_n_tell_dev",
   hostname: "localhost",
   pool_size: 10
