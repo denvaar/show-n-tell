@@ -1,5 +1,7 @@
 # ShowNTell
 
+[How to fork and contribute to this repo](/Contributing%20to%20Open%20Source%20on%20GitHub.pdf)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
