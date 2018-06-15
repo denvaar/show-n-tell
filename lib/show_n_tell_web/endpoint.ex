@@ -35,6 +35,7 @@ defmodule ShowNTellWeb.Endpoint do
     key: "_show_n_tell_key",
     signing_salt: "0KzqY3od"
 
+  plug CORSPlug
   plug ShowNTellWeb.Router
 
   @doc """

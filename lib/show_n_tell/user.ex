@@ -1,13 +1,13 @@
 defmodule ShowNTell.User do
   use Ecto.Schema
-  import Ecto.Changeset
 
+  import Ecto.Changeset
 
   schema "users" do
     field :email, :string
     field :first_name, :string
-    field :github_token, :string
     field :last_name, :string
+    field :github_token, :string
 
     timestamps()
   end
