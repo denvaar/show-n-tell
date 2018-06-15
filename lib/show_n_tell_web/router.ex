@@ -7,5 +7,7 @@ defmodule ShowNTellWeb.Router do
 
   scope "/api", ShowNTellWeb do
     pipe_through :api
+
+    post "/authenticate", AuthController, :create
   end
 end

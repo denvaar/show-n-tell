@@ -2,7 +2,6 @@ defmodule ShowNTell.Talk do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "talks" do
     field :date, :date
     field :description, :string
@@ -10,7 +9,6 @@ defmodule ShowNTell.Talk do
     field :title, :string
 
     has_many :votes, ShowNTell.Vote
-
 
     timestamps()
   end

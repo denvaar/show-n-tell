@@ -17,3 +17,6 @@ config :show_n_tell, ShowNTell.Repo,
   database: "show_n_tell_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure tesla for tests
+config :tesla, adapter: Tesla.Mock
