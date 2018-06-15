@@ -1,5 +1,7 @@
 # ShowNTell
 
+[![Build Status](https://travis-ci.org/denvaar/show-n-tell.svg?branch=master)](https://travis-ci.org/denvaar/show-n-tell)
+
 [How to fork and contribute to this repo](/Contributing%20to%20Open%20Source%20on%20GitHub.pdf)
 
 To start your Phoenix server:
