@@ -1,4 +1,8 @@
 defmodule ShowNTell.User do
+  @moduledoc """
+  User model documentation
+  """
+
   use Ecto.Schema
 
   import Ecto.Changeset

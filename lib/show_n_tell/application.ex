@@ -1,4 +1,8 @@
 defmodule ShowNTell.Application do
+  @moduledoc """
+  Show N Tell application module documentation.
+  """
+  
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html

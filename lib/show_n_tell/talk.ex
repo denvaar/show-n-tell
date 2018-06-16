@@ -1,4 +1,8 @@
 defmodule ShowNTell.Talk do
+  @moduledoc """
+  Talk model documentation
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
