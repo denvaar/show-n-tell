@@ -13,3 +13,15 @@ env:
   global:
     - PSQL_USER=postgres
     - PSQL_DB=travis
+    - MIX_ENV=test
+
+script:
+  - mix do local.hex --force
+  - mix deps.get
+  - mix test
+  - mix credo
+
+cache:
+  directories:
+    - _build
+    - deps
