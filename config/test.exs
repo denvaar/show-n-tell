@@ -20,3 +20,8 @@ config :show_n_tell, ShowNTell.Repo,
 
 # Configure tesla for tests
 config :tesla, adapter: Tesla.Mock
+
+# Configure Show & Tell values for test: defaults.
+config :show_n_tell,
+  github_client_id: "test-client-id",
+  github_client_secret: "test-client-secret"

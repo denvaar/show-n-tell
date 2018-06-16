@@ -26,5 +26,5 @@ config :logger, :console,
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
 
-# Import application-specific config
+# Import application-specific config: optional params with good defaults.
 import_config "show_n_tell.exs"

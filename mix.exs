@@ -39,7 +39,7 @@ defmodule ShowNTell.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:tesla, "1.0.0-beta.1"},
+      {:tesla, "1.0.0"},
       {:jason, ">= 1.0.0"},
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
       {:cors_plug, "~> 1.5"},

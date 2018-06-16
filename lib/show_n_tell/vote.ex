@@ -1,4 +1,8 @@
 defmodule ShowNTell.Vote do
+  @moduledoc """
+  Vote model documentation
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 
