@@ -44,3 +44,5 @@ config :show_n_tell, ShowNTell.Repo,
   database: "show_n_tell_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "show_n_tell_required.exs"
