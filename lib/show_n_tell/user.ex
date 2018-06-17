@@ -13,6 +13,8 @@ defmodule ShowNTell.User do
     field :last_name, :string
     field :github_token, :string
 
+    has_many :talks, ShowNTell.Talk, foreign_key: :speaker_id
+
     timestamps()
   end
 
