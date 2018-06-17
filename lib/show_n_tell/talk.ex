@@ -8,6 +8,7 @@ defmodule ShowNTell.Talk do
     field :estimated_duration, :integer
     field :title, :string
 
+    belongs_to :speaker, ShowNTell.User
     has_many :votes, ShowNTell.Vote
 
     timestamps()
