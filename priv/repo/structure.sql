@@ -52,7 +52,7 @@ CREATE TABLE public.talks (
     title character varying(255),
     description character varying(255),
     estimated_duration integer,
-    date date,
+    talk_date date,
     inserted_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     speaker_id bigint
@@ -212,5 +212,5 @@ ALTER TABLE ONLY public.votes
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO public."schema_migrations" (version) VALUES (20180404032432), (20180411205345), (20180412044053), (20180617204953);
+INSERT INTO public."schema_migrations" (version) VALUES (20180404032432), (20180411205345), (20180412044053), (20180617204953), (20180622194223);
 

@@ -1,5 +1,5 @@
 defmodule ShowNTell.Rest.GithubApiTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   import Tesla.Mock
 

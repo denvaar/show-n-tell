@@ -43,7 +43,9 @@ defmodule ShowNTell.Mixfile do
       {:jason, ">= 1.0.0"},
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
       {:cors_plug, "~> 1.5"},
-      {:dotenv, "~> 2.0.0"}
+      {:dotenv, "~> 2.0.0"},
+      {:absinthe_ecto, "~> 0.1.0"},
+      {:absinthe_plug, "~> 1.4.0"}
     ]
   end
 

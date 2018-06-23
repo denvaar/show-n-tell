@@ -10,4 +10,11 @@ defmodule ShowNTellWeb.Router do
 
     post "/authenticate", AuthController, :create
   end
+
+  scope "/" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: ShowNTellWeb.Schema
+  end
 end
