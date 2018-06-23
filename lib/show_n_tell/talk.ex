@@ -6,8 +6,11 @@ defmodule ShowNTell.Talk do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias ShowNTell.Repo
+  alias ShowNTell.Talk
+
   schema "talks" do
-    field :date, :date
+    field :talk_date, :date
     field :description, :string
     field :estimated_duration, :integer
     field :title, :string
@@ -21,7 +24,17 @@ defmodule ShowNTell.Talk do
   @doc false
   def changeset(talk, attrs) do
     talk
-    |> cast(attrs, [:title, :description, :estimated_duration, :date])
-    |> validate_required([:title, :description, :estimated_duration, :date])
+    |> cast(attrs, [:title, :description, :estimated_duration, :talk_date])
+    |> validate_required([:title, :description, :estimated_duration, :talk_date])
+  end
+
+  def list_talks() do
+    Repo.all(Talk)
+  end
+
+  def create_talk(args) do
+    %Talk{}
+    |> changeset(args)
+    |> Repo.insert
   end
 end
