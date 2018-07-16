@@ -11,6 +11,18 @@ defmodule ShowNTellWeb.AuthController do
     |> render_result(conn)
   end
 
+  def show(conn, _params) do
+    [authorization_header] =
+      conn
+      |> get_req_header("authorization")
+
+    "bearer " <> token = authorization_header
+
+    {:ok, %{"access_token" => token}}
+    |> Authenticator.process_token()
+    |> render_result(conn)
+  end
+
   defp render_result({:ok, body}, conn) do
     conn
     |> json(body)

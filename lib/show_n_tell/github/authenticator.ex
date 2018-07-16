@@ -6,11 +6,11 @@ defmodule ShowNTell.Github.Authenticator do
   alias ShowNTell.Repo
   alias ShowNTell.User
   alias ShowNTell.Rest.GithubApi
-  
+
   # Authenticates a user and returns the user record.
   def process_token({:ok, %{"access_token" => access_token}}) do
     client = GithubApi.client(access_token)
-  
+
     client
     |> GithubApi.user_orgs()
     |> check_github_org()
@@ -24,6 +24,7 @@ defmodule ShowNTell.Github.Authenticator do
     {:fail, body}
   end
 
+  defp check_github_org({:ok, %{status: 401} = resp}), do: {:fail, %{"error" => Map.get(resp.body, "message")}}
   defp check_github_org({:ok, orgs}) do
     github_org = Application.fetch_env!(:show_n_tell, :github_org)
     if Enum.find(orgs.body, fn org -> org["login"] == github_org end) do
@@ -57,10 +58,11 @@ defmodule ShowNTell.Github.Authenticator do
   defp create_new_user({:ok, _, user}) when is_map(user), do: {:ok, user}  # User if found on the previous step.
   defp create_new_user({:ok, user_data, nil}) do                           # User is not found - need to create a new one.
     [first_name, last_name] = String.split(user_data["name"], " ")
-    
+
     user = %User{}
            |> User.changeset(%{first_name: first_name,
                                last_name: last_name,
+                               photo: user_data["avatar_url"],
                                email: user_data["email"],
                                github_token: user_data["access_token"]})
            |> Repo.insert!
@@ -70,7 +72,7 @@ defmodule ShowNTell.Github.Authenticator do
   defp create_new_user({:fail, body}), do: {:fail, body}
 
   defp render_user({:ok, user}) do
-    {:ok, %{email: user.email, first_name: user.first_name, last_name: user.last_name, api_token: user.github_token}}
+    {:ok, %{email: user.email, first_name: user.first_name, last_name: user.last_name, photo: user.photo, api_token: user.github_token}}
   end
   defp render_user({:fail, body}), do: {:fail, body}
 end

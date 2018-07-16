@@ -11,6 +11,7 @@ defmodule ShowNTell.User do
     field :email, :string
     field :first_name, :string
     field :last_name, :string
+    field :photo, :string
     field :github_token, :string
 
     has_many :talks, ShowNTell.Talk, foreign_key: :speaker_id
@@ -21,7 +22,7 @@ defmodule ShowNTell.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :email, :github_token])
+    |> cast(attrs, [:first_name, :last_name, :email, :photo, :github_token])
     |> validate_required([:first_name, :last_name, :email, :github_token])
   end
 end
