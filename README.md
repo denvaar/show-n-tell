@@ -4,20 +4,18 @@
 
 [How to fork and contribute to this repo](/Contributing%20to%20Open%20Source%20on%20GitHub.pdf)
 
-To start your Phoenix server:
+### Development Setup
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start Phoenix endpoint with `mix phx.server`
+1. Add the configuration secrets in `config/show_n_tell.secret.exs`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+```elixir
+use Mix.Config
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+config :show_n_tell,
+  github_client_id: "<client-id-here>"
+  github_client_secret: "<secret-id-here>"
+```
 
-## Learn more
+2. Run the development server: `mix phx.server`
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+3. Use the handy GraphQL Workspace tool to play around: `http://localhost:4000/graphiql`

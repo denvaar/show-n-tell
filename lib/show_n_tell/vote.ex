@@ -6,6 +6,8 @@ defmodule ShowNTell.Vote do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias ShowNTell.Repo
+
   @primary_key false
 
   schema "votes" do
@@ -24,5 +26,9 @@ defmodule ShowNTell.Vote do
     |> cast(attrs, [:value, :user_id, :talk_id])
     |> unique_constraint(:user, name: :votes_talk_user_id_index)
     |> validate_required([:value, :user_id, :talk_id])
+  end
+
+  def list_votes() do
+    Repo.all(ShowNTell.Vote)
   end
 end
