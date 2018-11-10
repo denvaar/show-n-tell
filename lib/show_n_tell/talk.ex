@@ -35,6 +35,6 @@ defmodule ShowNTell.Talk do
   def create_talk(args) do
     %Talk{}
     |> changeset(args)
-    |> Repo.insert
+    |> Repo.insert()
   end
 end

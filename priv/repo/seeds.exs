@@ -13,11 +13,18 @@
 alias ShowNTell.Repo
 alias ShowNTell.User
 
-andrew = %User{email: "mr.bator@gmail.com", first_name: "Andrew", last_name: "Bator", github_token: "123456789"}
-         |> Repo.insert!
+andrew =
+  %User{email: "mr.bator@gmail.com",
+    first_name: "Andrew",
+    last_name: "Bator",
+    github_token: "123456789"}
+  |> Repo.insert!()
 
-denver = %User{email: "uber.coder@gmail.com", first_name: "Denver", last_name: "Smith", github_token: "987654321"}
-         |> Repo.insert!
+denver =
+  %User{email: "zelda.williams@gmail.com",
+    first_name: "Zelda", last_name: "Williams",
+    github_token: "987654321"}
+  |> Repo.insert!()
 
 Ecto.build_assoc(andrew, :talks, %{talk_date: ~D[2018-07-01], title: "How to like your own code", description: "Best practices of writing code for humans", estimated_duration: 20})
 |> Repo.insert!

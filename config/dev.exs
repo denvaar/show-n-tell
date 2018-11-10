@@ -45,4 +45,4 @@ config :show_n_tell, ShowNTell.Repo,
   hostname: "localhost",
   pool_size: 10
 
-import_config "show_n_tell_required.exs"
+import_config "show_n_tell.secret.exs"

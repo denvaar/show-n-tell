@@ -5,7 +5,7 @@ defmodule ShowNTell.Mixfile do
     [
       app: :show_n_tell,
       version: "0.0.1",
-      elixir: "~> 1.4",
+      elixir: "~> 1.7.3",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -38,14 +38,16 @@ defmodule ShowNTell.Mixfile do
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
+      {:plug_cowboy, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:tesla, "1.0.0"},
       {:jason, ">= 1.0.0"},
       {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
       {:cors_plug, "~> 1.5"},
       {:dotenv, "~> 2.0.0"},
-      {:absinthe_ecto, "~> 0.1.0"},
-      {:absinthe_plug, "~> 1.4.0"}
+      {:absinthe, "~> 1.4.0"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_plug, "~> 1.4.0"},
     ]
   end
 
@@ -60,7 +62,7 @@ defmodule ShowNTell.Mixfile do
       "ecto.seed": ["run priv/repo/seeds.exs"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["ecto.create --quiet", "ecto.migrate", "test"]
     ]
   end
 end

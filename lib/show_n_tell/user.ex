@@ -7,6 +7,9 @@ defmodule ShowNTell.User do
 
   import Ecto.Changeset
 
+  alias ShowNTell.Repo
+  alias ShowNTell.User
+
   schema "users" do
     field :email, :string
     field :first_name, :string
@@ -24,5 +27,9 @@ defmodule ShowNTell.User do
     user
     |> cast(attrs, [:first_name, :last_name, :email, :photo, :github_token])
     |> validate_required([:first_name, :last_name, :email, :github_token])
+  end
+
+  def list_users() do
+    Repo.all(User)
   end
 end

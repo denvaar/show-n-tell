@@ -5,6 +5,10 @@ defmodule ShowNTellWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :graphql do
+    plug ShowNTellWeb.AuthContext
+  end
+
   scope "/api", ShowNTellWeb do
     pipe_through :api
 
@@ -12,7 +16,7 @@ defmodule ShowNTellWeb.Router do
   end
 
   scope "/" do
-    pipe_through :api
+    pipe_through [:api, :graphql]
 
     forward "/graphiql", Absinthe.Plug.GraphiQL,
       schema: ShowNTellWeb.Schema
